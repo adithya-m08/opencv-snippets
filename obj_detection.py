@@ -29,13 +29,13 @@ while True:
     indices = cv2.dnn.NMSBoxes(bbox, confs, thres, nms_threshold)
 
     for i in indices:
-        i = i[0]
+        # i = i[0]
         box = bbox[i]
         x, y, w, h = box[0], box[1], box[2], box[3]
         cv2.rectangle(img, (x, y), (x + w, h + y), color=(0, 255, 0), thickness=2)
         cv2.putText(
             img,
-            classNames[classIds[i][0] - 1].upper(),
+            classNames[classIds[i] - 1].upper(),
             (box[0] + 10, box[1] + 30),
             cv2.FONT_HERSHEY_COMPLEX,
             1,
